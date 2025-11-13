@@ -17,7 +17,7 @@
     <Grid RowDefinitions="*, 160">
         <Path Fill="#151515">
             <Path.Data>
-                <RoundRectangleGeometry CornerRadius="0, 0, 140, 140" Rect="0, 0, 400, 350" />
+                <RoundRectangleGeometry CornerRadius="0, 0, 130, 130" Rect="0, 0, 400, 400" />
             </Path.Data>
         </Path>
 
@@ -26,6 +26,7 @@
             ColumnSpacing="10"
             HorizontalOptions="Center"
             RowDefinitions="60">
+
             <Image
                 Margin="0,10"
                 Source="cepeappicon.png"
@@ -34,8 +35,8 @@
 
             <Label
                 Grid.Column="1"
-                FontSize="19"
                 FontAttributes="Bold"
+                FontSize="19"
                 Text="Bem-Vindo ao Cepe!"
                 TextColor="White"
                 VerticalTextAlignment="Center" />
@@ -43,6 +44,7 @@
 
         <CarouselView
             x:Name="myCarousel"
+            IndicatorView="indicatorView"
             ItemsSource="{Binding OnBoardingContents}"
             Loop="False">
             <CarouselView.ItemTemplate>
@@ -79,10 +81,17 @@
             Grid.Row="1"
             Padding="15"
             Spacing="15">
+
             <IndicatorView
-                HorizontalOptions="Center"
-                IndicatorColor="White"
-                SelectedIndicatorColor="Green" />
+                x:Name="indicatorView"
+                IndicatorColor="#13b158"
+                SelectedIndicatorColor="White">
+                <IndicatorView.IndicatorTemplate>
+                    <DataTemplate>
+                        <Border HeightRequest="5" WidthRequest="50" />
+                    </DataTemplate>
+                </IndicatorView.IndicatorTemplate>
+            </IndicatorView>
 
             <Button
                 BackgroundColor="#13b158"
