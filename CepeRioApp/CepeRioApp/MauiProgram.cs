@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Maui;
+﻿using CepeRioApp.ViewModels;
+using CepeRioApp.Views;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace CepeRioApp
@@ -15,11 +17,15 @@ namespace CepeRioApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Inter-font.ttf", "MainFont");
                 });
 
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddTransient<OnBoardingViewModel>();
+            builder.Services.AddTransient<OnBoardingView>();
 
             return builder.Build();
         }

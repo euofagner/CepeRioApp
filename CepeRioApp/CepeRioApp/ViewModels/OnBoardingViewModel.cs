@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace CepeRioApp.ViewModels;
 
-public class OnBoardingViewModel : INotifyPropertyChanged
+public partial class OnBoardingViewModel : INotifyPropertyChanged
 {
     private bool _isLastOne;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public ObservableCollection<OnBoardingContent>? OnBoardingContents { get; set; }
+    public ObservableCollection<OnBoardingContent>? OnBoardingContents { get; set; } = new();
 
     public OnBoardingViewModel()
     {

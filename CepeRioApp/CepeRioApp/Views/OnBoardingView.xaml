@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CepeRioApp.Views.OnBoardingView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:CepeRioApp.Models"
+    xmlns:viewmodel="clr-namespace:CepeRioApp.ViewModels"
+    Title="OnBoardingView"
+    x:DataType="viewmodel:OnBoardingViewModel"
+    BackgroundColor="#0C3B2E">
+
+    <Grid RowDefinitions="*, Auto">
+        <CarouselView
+            x:Name="myCarousel"
+            ItemsSource="{Binding OnBoardingContents}"
+            Loop="False">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="model:OnBoardingContent">
+                    <Grid
+                        Padding="5"
+                        RowDefinitions="*, Auto, Auto, Auto"
+                        RowSpacing="15">
+                        <Image Aspect="AspectFill" Source="{Binding Image}" />
+
+                        <Label
+                            Grid.Row="1"
+                            FontAttributes="Bold"
+                            FontFamily="MainFont"
+                            FontSize="27"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Title}"
+                            TextColor="White" />
+
+                        <Label
+                            Grid.Row="2"
+                            FontFamily="MainFont"
+                            FontSize="19"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Description}"
+                            TextColor="White" />
+
+
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <VerticalStackLayout Grid.Row="1" Padding="15">
+
+            <IndicatorView
+                HorizontalOptions="Center"
+                IndicatorColor="White"
+                SelectedIndicatorColor="Green" />
+
+            <Button
+                BackgroundColor="#13b158"
+                CornerRadius="50"
+                FontSize="20"
+                HeightRequest="65"
+                Text="Próximo" />
+
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
