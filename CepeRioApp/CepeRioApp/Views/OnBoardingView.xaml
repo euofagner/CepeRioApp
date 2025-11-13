@@ -4,34 +4,42 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model="clr-namespace:CepeRioApp.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewmodel="clr-namespace:CepeRioApp.ViewModels"
     Title="OnBoardingView"
     x:DataType="viewmodel:OnBoardingViewModel"
     BackgroundColor="#1e1e1e">
 
-    <Grid RowDefinitions="*, Auto">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#080808" />
+    </ContentPage.Behaviors>
 
-        <!--<Frame VerticalOptions="Start" CornerRadius="100" HeightRequest="300">
-
-        </Frame>-->
-
+    <Grid RowDefinitions="*, 160">
         <Path Fill="#151515">
             <Path.Data>
-                <RoundRectangleGeometry CornerRadius="0, 0, 140, 140" Rect="0, 0, 400, 400" />
+                <RoundRectangleGeometry CornerRadius="0, 0, 140, 140" Rect="0, 0, 400, 350" />
             </Path.Data>
         </Path>
 
-        <!--<Rectangle
-            Fill="#151515"
-            HeightRequest="350"
-            HorizontalOptions="Fill"
-            VerticalOptions="Start"
-            WidthRequest="400" />-->
+        <Grid
+            ColumnDefinitions="*, *"
+            ColumnSpacing="10"
+            HorizontalOptions="Center"
+            RowDefinitions="60">
+            <Image
+                Margin="0,10"
+                Source="cepeappicon.png"
+                VerticalOptions="Start"
+                WidthRequest="40" />
 
-        <!--<Image
-            Source="cepeappicon.png"
-            VerticalOptions="Start"
-            WidthRequest="50" />-->
+            <Label
+                Grid.Column="1"
+                FontSize="19"
+                FontAttributes="Bold"
+                Text="Bem-Vindo ao Cepe!"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </Grid>
 
         <CarouselView
             x:Name="myCarousel"
@@ -41,7 +49,7 @@
                 <DataTemplate x:DataType="model:OnBoardingContent">
                     <Grid
                         Padding="5"
-                        RowDefinitions="*, Auto, Auto, Auto"
+                        RowDefinitions="400, Auto, Auto"
                         RowSpacing="15">
 
                         <Image Aspect="AspectFit" Source="{Binding Image}" />
@@ -67,7 +75,10 @@
             </CarouselView.ItemTemplate>
         </CarouselView>
 
-        <VerticalStackLayout Grid.Row="1" Padding="15">
+        <VerticalStackLayout
+            Grid.Row="1"
+            Padding="15"
+            Spacing="15">
             <IndicatorView
                 HorizontalOptions="Center"
                 IndicatorColor="White"
@@ -82,10 +93,15 @@
                 Text="Próximo" />
 
             <HorizontalStackLayout HorizontalOptions="Center">
-                <Label FontAttributes="Bold" Text="Você já é um associado? " />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Já é um associado? "
+                    TextColor="#bbbbbb" />
 
                 <Label
                     FontAttributes="Bold"
+                    FontSize="16"
                     Text="Fazer login"
                     TextColor="#13b158" />
             </HorizontalStackLayout>
