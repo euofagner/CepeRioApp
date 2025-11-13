@@ -7,9 +7,32 @@
     xmlns:viewmodel="clr-namespace:CepeRioApp.ViewModels"
     Title="OnBoardingView"
     x:DataType="viewmodel:OnBoardingViewModel"
-    BackgroundColor="#0C3B2E">
+    BackgroundColor="#1e1e1e">
 
     <Grid RowDefinitions="*, Auto">
+
+        <!--<Frame VerticalOptions="Start" CornerRadius="100" HeightRequest="300">
+
+        </Frame>-->
+
+        <Path Fill="#151515">
+            <Path.Data>
+                <RoundRectangleGeometry CornerRadius="0, 0, 140, 140" Rect="0, 0, 400, 400" />
+            </Path.Data>
+        </Path>
+
+        <!--<Rectangle
+            Fill="#151515"
+            HeightRequest="350"
+            HorizontalOptions="Fill"
+            VerticalOptions="Start"
+            WidthRequest="400" />-->
+
+        <!--<Image
+            Source="cepeappicon.png"
+            VerticalOptions="Start"
+            WidthRequest="50" />-->
+
         <CarouselView
             x:Name="myCarousel"
             ItemsSource="{Binding OnBoardingContents}"
@@ -20,13 +43,14 @@
                         Padding="5"
                         RowDefinitions="*, Auto, Auto, Auto"
                         RowSpacing="15">
-                        <Image Aspect="AspectFill" Source="{Binding Image}" />
+
+                        <Image Aspect="AspectFit" Source="{Binding Image}" />
 
                         <Label
                             Grid.Row="1"
                             FontAttributes="Bold"
                             FontFamily="MainFont"
-                            FontSize="27"
+                            FontSize="30"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Title}"
                             TextColor="White" />
@@ -37,16 +61,13 @@
                             FontSize="19"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Description}"
-                            TextColor="White" />
-
-
+                            TextColor="#cccccc" />
                     </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
 
         <VerticalStackLayout Grid.Row="1" Padding="15">
-
             <IndicatorView
                 HorizontalOptions="Center"
                 IndicatorColor="White"
@@ -54,11 +75,20 @@
 
             <Button
                 BackgroundColor="#13b158"
-                CornerRadius="50"
+                CornerRadius="10"
+                FontAttributes="Bold"
                 FontSize="20"
                 HeightRequest="65"
                 Text="Próximo" />
 
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label FontAttributes="Bold" Text="Você já é um associado? " />
+
+                <Label
+                    FontAttributes="Bold"
+                    Text="Fazer login"
+                    TextColor="#13b158" />
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
 
