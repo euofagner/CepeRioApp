@@ -68,10 +68,10 @@
                         <Label
                             Grid.Row="2"
                             FontFamily="MainFont"
-                            FontSize="19"
+                            FontSize="17"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Description}"
-                            TextColor="#cccccc" />
+                            TextColor="#bbbbbb" />
                     </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
@@ -84,11 +84,16 @@
 
             <IndicatorView
                 x:Name="indicatorView"
+                HorizontalOptions="Center"
                 IndicatorColor="#13b158"
                 SelectedIndicatorColor="White">
                 <IndicatorView.IndicatorTemplate>
                     <DataTemplate>
-                        <Border HeightRequest="5" WidthRequest="50" />
+                        <Border
+                            HeightRequest="7"
+                            StrokeShape="RoundRectangle 15"
+                            StrokeThickness="0"
+                            WidthRequest="50" />
                     </DataTemplate>
                 </IndicatorView.IndicatorTemplate>
             </IndicatorView>
