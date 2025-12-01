@@ -26,6 +26,8 @@ namespace CepeRioApp
 
             builder.Services.AddTransient<OnBoardingViewModel>();
             builder.Services.AddTransient<OnBoardingView>();
+            builder.Services.AddTransient<AppShell>();
+            builder.Services.AddTransient<App>();
 
             return builder.Build();
         }

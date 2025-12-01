@@ -4,8 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CepeRioApp"
-    Shell.FlyoutBehavior="Disabled"
-    Title="CepeRioApp">
+    xmlns:views="clr-namespace:CepeRioApp.Views"
+    Title="CepeRioApp"
+    Shell.FlyoutBehavior="Flyout">
+
+    <ShellContent
+        Title="OnBoarding"
+        ContentTemplate="{DataTemplate views:OnBoardingView}"
+        Route="OnBoardingView" />
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:LoginView}"
+        Route="LoginView" />
 
     <ShellContent
         Title="Home"

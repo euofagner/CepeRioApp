@@ -8,18 +8,29 @@
     xmlns:viewmodel="clr-namespace:CepeRioApp.ViewModels"
     Title="OnBoardingView"
     x:DataType="viewmodel:OnBoardingViewModel"
-    BackgroundColor="#1e1e1e">
+    BackgroundColor="#1e1e1e"
+    Shell.NavBarIsVisible="False">
 
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="#080808" />
     </ContentPage.Behaviors>
 
     <Grid RowDefinitions="*, 180">
-        <Path Fill="#151515">
-            <Path.Data>
-                <RoundRectangleGeometry CornerRadius="0, 0, 130, 130" Rect="0, 0, 400, 400" />
-            </Path.Data>
-        </Path>
+        <Border
+            Grid.ColumnSpan="2"
+            BackgroundColor="#151515"
+            HeightRequest="380"
+            Stroke="Transparent"
+            StrokeShape="RoundRectangle 0, 0, 110, 110"
+            VerticalOptions="Start">
+
+            <!--<Border.Background>
+                <LinearGradientBrush StartPoint="1, 0" EndPoint="0, 1">
+                    <GradientStop Offset="0.1" Color="#fcc615" />
+                    <GradientStop Offset="3.0" Color="#006f5d" />
+                </LinearGradientBrush>
+            </Border.Background>-->
+        </Border>
 
         <Grid
             ColumnDefinitions="*, *"
@@ -43,7 +54,9 @@
         </Grid>
 
         <CarouselView
-            x:Name="myCarousel"
+            x:Name="OnBoardingCarousel"
+            PositionChanged="OnBoardingCarousel_PositionChanged"
+            HorizontalScrollBarVisibility="Never"
             IndicatorView="indicatorView"
             ItemsSource="{Binding OnBoardingContents}"
             Loop="False">
@@ -51,7 +64,7 @@
                 <DataTemplate x:DataType="model:OnBoardingContent">
                     <Grid
                         Padding="5"
-                        RowDefinitions="400, Auto, Auto"
+                        RowDefinitions="400, Auto, *"
                         RowSpacing="15">
 
                         <Image Aspect="AspectFit" Source="{Binding Image}" />
@@ -60,18 +73,20 @@
                             Grid.Row="1"
                             FontAttributes="Bold"
                             FontFamily="MainFont"
-                            FontSize="30"
+                            FontSize="32"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Title}"
-                            TextColor="White" />
+                            TextColor="White"
+                            VerticalOptions="Center" />
 
                         <Label
                             Grid.Row="2"
                             FontFamily="MainFont"
-                            FontSize="17"
+                            FontSize="18"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Description}"
-                            TextColor="#bbbbbb" />
+                            TextColor="#cccccc"
+                            VerticalOptions="Start" />
                     </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
@@ -99,13 +114,14 @@
             </IndicatorView>
 
             <Button
+                x:Name="OnBoardingBtn"
                 BackgroundColor="#13b158"
+                Clicked="OnBoardingBtn_Clicked"
                 CornerRadius="10"
                 FontAttributes="Bold"
                 FontSize="20"
                 HeightRequest="65"
-                TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
-                Text="Próximo" />
+                TextColor="White" />
 
             <HorizontalStackLayout HorizontalOptions="Center">
                 <Label
