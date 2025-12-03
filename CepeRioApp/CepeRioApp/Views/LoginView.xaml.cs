@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace CepeRioApp.Views;
 
 public partial class LoginView : ContentPage
@@ -6,4 +8,9 @@ public partial class LoginView : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void LoginBtn_Clicked(object sender, EventArgs e)
+    {
+		await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+    }
 }

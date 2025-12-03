@@ -6,12 +6,58 @@
     Title="LoginView"
     BackgroundColor="#020b07"
     Shell.NavBarIsVisible="False">
-    <FlexLayout
-        AlignItems="Center"
-        Direction="Column"
-        JustifyContent="SpaceEvenly">
-        <Image Source="loginpic.png" WidthRequest="400" />
 
-        <Entry Placeholder="Matrícula/CPF" />
-    </FlexLayout>
+    <VerticalStackLayout
+        Padding="35"
+        Spacing="10"
+        VerticalOptions="Start">
+        <Image
+            Margin="0, 50"
+            Source="loginpic3.png"
+            WidthRequest="200" />
+
+        <Border
+            BackgroundColor="#121212"
+            Stroke="Transparent"
+            StrokeShape="RoundRectangle 13">
+            <Entry
+                Margin="20,0"
+                FontSize="19"
+                HeightRequest="65"
+                Keyboard="Telephone"
+                Placeholder="Matrícula/CPF"
+                PlaceholderColor="#aaa" />
+        </Border>
+
+        <Border
+            BackgroundColor="#121212"
+            Stroke="Transparent"
+            StrokeShape="RoundRectangle 13">
+            <Entry
+                Margin="20,0"
+                FontSize="19"
+                HeightRequest="65"
+                Keyboard="Numeric"
+                Placeholder="Senha"
+                PlaceholderColor="#aaa" />
+        </Border>
+
+        <Button
+            x:Name="LoginBtn"
+            Margin="0,10"
+            BackgroundColor="#239a51"
+            Clicked="LoginBtn_Clicked"
+            CornerRadius="13"
+            FontAttributes="Bold"
+            FontSize="25"
+            HeightRequest="65"
+            Text="Entrar"
+            TextColor="White" />
+
+        <Label
+            FontSize="19"
+            HorizontalTextAlignment="Center"
+            Text="Esqueceu a senha?"
+            TextColor="#13b158" />
+    </VerticalStackLayout>
 </ContentPage>

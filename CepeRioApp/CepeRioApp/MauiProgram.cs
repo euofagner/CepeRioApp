@@ -2,34 +2,41 @@
 using CepeRioApp.Views;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Platform;
 
-namespace CepeRioApp
+namespace CepeRioApp;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                    fonts.AddFont("Inter-font.ttf", "MainFont");
-                });
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                fonts.AddFont("Inter-font.ttf", "MainFont");
+            });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-            builder.Services.AddTransient<OnBoardingViewModel>();
-            builder.Services.AddTransient<OnBoardingView>();
-            builder.Services.AddTransient<AppShell>();
-            builder.Services.AddTransient<App>();
+        builder.Services.AddTransient<OnBoardingViewModel>();
+        builder.Services.AddTransient<OnBoardingView>();
+        builder.Services.AddTransient<AppShell>();
+        builder.Services.AddTransient<App>();
 
-            return builder.Build();
-        }
+        Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("CustomEntry", (handler, view) =>
+        {
+#if ANDROID
+            handler.PlatformView.BackgroundTintList = Android.Content.Res.ColorStateList.ValueOf(Colors.Transparent.ToPlatform());
+#endif
+        });
+
+        return builder.Build();
     }
 }
