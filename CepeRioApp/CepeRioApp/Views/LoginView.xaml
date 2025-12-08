@@ -3,8 +3,10 @@
     x:Class="CepeRioApp.Views.LoginView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Title="LoginView"
-    BackgroundColor="#020b07"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource Black},
+                                      Light={StaticResource White}}"
     Shell.NavBarIsVisible="False">
 
     <VerticalStackLayout
@@ -12,12 +14,13 @@
         Spacing="10"
         VerticalOptions="Start">
         <Image
-            Margin="0, 50"
+            Margin="0,50"
             Source="loginpic3.png"
             WidthRequest="200" />
 
         <Border
-            BackgroundColor="#121212"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkLoginEntryColor},
+                                              Light={StaticResource LightLoginEntryColor}}"
             Stroke="Transparent"
             StrokeShape="RoundRectangle 13">
             <Entry
@@ -26,11 +29,13 @@
                 HeightRequest="65"
                 Keyboard="Telephone"
                 Placeholder="Matrícula/CPF"
-                PlaceholderColor="#aaa" />
+                PlaceholderColor="{AppThemeBinding Dark={StaticResource DarkLoginPlaceholderColor},
+                                                   Light={StaticResource LightLoginPlaceholderColor}}" />
         </Border>
 
         <Border
-            BackgroundColor="#121212"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource DarkLoginEntryColor},
+                                              Light={StaticResource LightLoginEntryColor}}"
             Stroke="Transparent"
             StrokeShape="RoundRectangle 13">
             <Entry
@@ -39,7 +44,8 @@
                 HeightRequest="65"
                 Keyboard="Numeric"
                 Placeholder="Senha"
-                PlaceholderColor="#aaa" />
+                PlaceholderColor="{AppThemeBinding Dark={StaticResource DarkLoginPlaceholderColor},
+                                                   Light={StaticResource LightLoginPlaceholderColor}}" />
         </Border>
 
         <Button
