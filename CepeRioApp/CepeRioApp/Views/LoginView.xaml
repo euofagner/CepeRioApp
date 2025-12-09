@@ -32,6 +32,15 @@
 
         <Style x:Key="BorderStyle" TargetType="Border">
             <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkLoginEntryColor}, Light={StaticResource LightLoginEntryColor}}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 13" />
+            <Setter Property="Stroke" Value="Transparent" />
+        </Style>
+
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="FontSize" Value="19" />
+            <Setter Property="Margin" Value="20, 0" />
+            <Setter Property="HeightRequest" Value="65" />
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Dark={StaticResource DarkLoginPlaceholderColor}, Light={StaticResource LightLoginPlaceholderColor}}" />
         </Style>
     </ContentPage.Resources>
 
@@ -45,32 +54,18 @@
             Style="{StaticResource ImageStyle}"
             WidthRequest="200" />
 
-        <Border
-            Stroke="Transparent"
-            StrokeShape="RoundRectangle 13"
-            Style="{StaticResource BorderStyle}">
+        <Border Style="{StaticResource BorderStyle}">
             <Entry
-                Margin="20,0"
-                FontSize="19"
-                HeightRequest="65"
                 Keyboard="Telephone"
                 Placeholder="Matrícula/CPF"
-                PlaceholderColor="{AppThemeBinding Dark={StaticResource DarkLoginPlaceholderColor},
-                                                   Light={StaticResource LightLoginPlaceholderColor}}" />
+                Style="{StaticResource EntryStyle}" />
         </Border>
 
-        <Border
-            Stroke="Transparent"
-            StrokeShape="RoundRectangle 13"
-            Style="{StaticResource BorderStyle}">
+        <Border Style="{StaticResource BorderStyle}">
             <Entry
-                Margin="20,0"
-                FontSize="19"
-                HeightRequest="65"
-                Keyboard="Numeric"
+                Keyboard="Password"
                 Placeholder="Senha"
-                PlaceholderColor="{AppThemeBinding Dark={StaticResource DarkLoginPlaceholderColor},
-                                                   Light={StaticResource LightLoginPlaceholderColor}}" />
+                Style="{StaticResource EntryStyle}" />
         </Border>
 
         <Button

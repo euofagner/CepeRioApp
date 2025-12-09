@@ -8,22 +8,40 @@
     xmlns:viewmodel="clr-namespace:CepeRioApp.ViewModels"
     Title="OnBoardingView"
     x:DataType="viewmodel:OnBoardingViewModel"
-    BackgroundColor="#1e1e1e"
+    BackgroundColor="{StaticResource ViewBackground}"
     Shell.NavBarIsVisible="False">
 
+    <ContentPage.Resources>
+        <!--  MainBackground  -->
+        <Color x:Key="MainDarkBackgroundColor">#1e1e1e</Color>
+        <Color x:Key="MainLightBackgroundColor">#ffffff</Color>
+
+        <Color x:Key="BorderDarkBackground">#151515</Color>
+        <Color x:Key="BorderLightBackground">#eeeeee</Color>
+
+        <Style x:Key="ViewBackground" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource MainDarkBackgroundColor}, Light={StaticResource MainLightBackgroundColor}}" />
+        </Style>
+
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BorderDarkBackground}, Light={StaticResource BorderLightBackground}}" />
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="#080808" />
+        <toolkit:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}" />
     </ContentPage.Behaviors>
 
     <Grid RowDefinitions="*, 180">
         <Border
             Grid.ColumnSpan="2"
-            BackgroundColor="#151515"
             HeightRequest="380"
             Stroke="Transparent"
             StrokeShape="RoundRectangle 0, 0, 110, 110"
+            Style="{StaticResource BorderStyle}"
             VerticalOptions="Start">
 
+            <!--  Gradient Color test  -->
             <!--<Border.Background>
                 <LinearGradientBrush StartPoint="1, 0" EndPoint="0, 1">
                     <GradientStop Offset="0.1" Color="#fcc615" />
@@ -55,11 +73,11 @@
 
         <CarouselView
             x:Name="OnBoardingCarousel"
-            PositionChanged="OnBoardingCarousel_PositionChanged"
             HorizontalScrollBarVisibility="Never"
             IndicatorView="indicatorView"
             ItemsSource="{Binding OnBoardingContents}"
-            Loop="False">
+            Loop="False"
+            PositionChanged="OnBoardingCarousel_PositionChanged">
             <CarouselView.ItemTemplate>
                 <DataTemplate x:DataType="model:OnBoardingContent">
                     <Grid
