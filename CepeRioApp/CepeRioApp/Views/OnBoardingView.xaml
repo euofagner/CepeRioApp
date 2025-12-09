@@ -8,38 +8,37 @@
     xmlns:viewmodel="clr-namespace:CepeRioApp.ViewModels"
     Title="OnBoardingView"
     x:DataType="viewmodel:OnBoardingViewModel"
-    BackgroundColor="{StaticResource ViewBackground}"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource MainDarkBackgroundColor},
+                                      Light={StaticResource MainLightBackgroundColor}}"
     Shell.NavBarIsVisible="False">
 
     <ContentPage.Resources>
         <!--  MainBackground  -->
-        <Color x:Key="MainDarkBackgroundColor">#1e1e1e</Color>
-        <Color x:Key="MainLightBackgroundColor">#ffffff</Color>
+        <!--<Color x:Key="MainDarkBackgroundColor">#1e1e1e</Color>
+        <Color x:Key="MainLightBackgroundColor">#000</Color>-->
 
         <Color x:Key="BorderDarkBackground">#151515</Color>
-        <Color x:Key="BorderLightBackground">#eeeeee</Color>
+        <Color x:Key="BorderLightBackground">#dddddd</Color>
 
-        <Style x:Key="ViewBackground" TargetType="ContentPage">
+        <!--<Style x:Key="ViewBackground" TargetType="ContentPage">
             <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource MainDarkBackgroundColor}, Light={StaticResource MainLightBackgroundColor}}" />
-        </Style>
+        </Style>-->
 
         <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="Stroke" Value="Transparent" />
+            <Setter Property="VerticalOptions" Value="Start" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 0, 0, 110, 110" />
+            <Setter Property="HeightRequest" Value="380" />
             <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource BorderDarkBackground}, Light={StaticResource BorderLightBackground}}" />
         </Style>
     </ContentPage.Resources>
 
     <ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource Black}, Light={StaticResource White}}" />
+        <toolkit:StatusBarBehavior StatusBarColor="#000000" />
     </ContentPage.Behaviors>
 
     <Grid RowDefinitions="*, 180">
-        <Border
-            Grid.ColumnSpan="2"
-            HeightRequest="380"
-            Stroke="Transparent"
-            StrokeShape="RoundRectangle 0, 0, 110, 110"
-            Style="{StaticResource BorderStyle}"
-            VerticalOptions="Start">
+        <Border Grid.ColumnSpan="2" Style="{StaticResource BorderStyle}">
 
             <!--  Gradient Color test  -->
             <!--<Border.Background>
@@ -67,7 +66,8 @@
                 FontAttributes="Bold"
                 FontSize="19"
                 Text="Bem-Vindo ao Cepe!"
-                TextColor="White"
+                TextColor="{AppThemeBinding Dark={StaticResource White},
+                                            Light={StaticResource Black}}"
                 VerticalTextAlignment="Center" />
         </Grid>
 
@@ -94,16 +94,19 @@
                             FontSize="32"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Title}"
-                            TextColor="White"
+                            TextColor="{AppThemeBinding Dark={StaticResource White},
+                                                        Light={StaticResource Gray900}}"
                             VerticalOptions="Center" />
 
                         <Label
                             Grid.Row="2"
+                            FontAttributes="Bold"
                             FontFamily="MainFont"
                             FontSize="18"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Description}"
-                            TextColor="#cccccc"
+                            TextColor="{AppThemeBinding Dark={StaticResource GrayLabel},
+                                                        Light={StaticResource PrimaryDarkText}}"
                             VerticalOptions="Start" />
                     </Grid>
                 </DataTemplate>
@@ -133,7 +136,8 @@
 
             <Button
                 x:Name="OnBoardingBtn"
-                BackgroundColor="#13b158"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkModeGreenButton},
+                                                  Light={StaticResource LightModeGreenButton}}"
                 Clicked="OnBoardingBtn_Clicked"
                 CornerRadius="10"
                 FontAttributes="Bold"
@@ -146,7 +150,8 @@
                     FontAttributes="Bold"
                     FontSize="16"
                     Text="Já é um associado? "
-                    TextColor="#bbbbbb" />
+                    TextColor="{AppThemeBinding Dark={StaticResource GrayLabelOnBoarding},
+                                                Light={StaticResource Gray900}}" />
 
                 <Label
                     FontAttributes="Bold"
