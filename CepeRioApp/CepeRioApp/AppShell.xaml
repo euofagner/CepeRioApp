@@ -24,24 +24,28 @@
             Title="Home"
             ContentTemplate="{DataTemplate views:HomeView}"
             Icon="home_tab.png"
-            Route="HomeView" />
+            Route="HomeView"
+            Shell.TabBarUnselectedColor="#4a8576" />
 
         <ShellContent
             Title="Eventos"
             ContentTemplate="{DataTemplate views:EventsView}"
             Icon="events_tab.png"
-            Route="EventsView" />
+            Route="EventsView"
+            Shell.TabBarUnselectedColor="#4a8576" />
 
         <ShellContent
             Title="Atividades"
             ContentTemplate="{DataTemplate views:ActivitiesView}"
             Icon="activities2_tab.png"
-            Route="ActivitiesView" />
+            Route="ActivitiesView"
+            Shell.TabBarUnselectedColor="#4a8576" />
 
         <ShellContent
             Title="Perfil"
             ContentTemplate="{DataTemplate views:ProfileView}"
             Icon="profile_tab.png"
-            Route="ProfileView" />
+            Route="ProfileView"
+            Shell.TabBarUnselectedColor="#4a8576" />
     </TabBar>
 </Shell>
