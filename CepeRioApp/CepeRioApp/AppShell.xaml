@@ -6,7 +6,8 @@
     xmlns:local="clr-namespace:CepeRioApp"
     xmlns:views="clr-namespace:CepeRioApp.Views"
     Title="CepeRioApp"
-    Shell.FlyoutBehavior="Flyout">
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
 
     <ShellContent
         Title="OnBoarding"
@@ -18,9 +19,29 @@
         ContentTemplate="{DataTemplate views:LoginView}"
         Route="LoginView" />
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate views:HomeView}"
+            Icon="home_tab.png"
+            Route="HomeView" />
 
+        <ShellContent
+            Title="Eventos"
+            ContentTemplate="{DataTemplate views:EventsView}"
+            Icon="events_tab.png"
+            Route="EventsView" />
+
+        <ShellContent
+            Title="Atividades"
+            ContentTemplate="{DataTemplate views:ActivitiesView}"
+            Icon="activities2_tab.png"
+            Route="ActivitiesView" />
+
+        <ShellContent
+            Title="Perfil"
+            ContentTemplate="{DataTemplate views:ProfileView}"
+            Icon="profile_tab.png"
+            Route="ProfileView" />
+    </TabBar>
 </Shell>

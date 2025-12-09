@@ -94,8 +94,8 @@
                             FontSize="32"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Title}"
-                            TextColor="{AppThemeBinding Dark={StaticResource White},
-                                                        Light={StaticResource Gray900}}"
+                            TextColor="{AppThemeBinding Dark={StaticResource GrayLabelTitle},
+                                                        Light={StaticResource DarkLabelTitle}}"
                             VerticalOptions="Center" />
 
                         <Label
@@ -105,8 +105,8 @@
                             FontSize="18"
                             HorizontalTextAlignment="Center"
                             Text="{Binding Description}"
-                            TextColor="{AppThemeBinding Dark={StaticResource GrayLabel},
-                                                        Light={StaticResource PrimaryDarkText}}"
+                            TextColor="{AppThemeBinding Dark={StaticResource GrayLabelDescription},
+                                                        Light={StaticResource DarkLabelDescription}}"
                             VerticalOptions="Start" />
                     </Grid>
                 </DataTemplate>
